@@ -1,0 +1,29 @@
+plugins{
+    id 'java'
+    id 'application'
+}
+
+group('me.skiincraft')
+version('2021.0127.0')
+
+repositories {
+    jcenter()
+}
+
+compileJava.options.encoding('UTF-8')
+tasks.withType(JavaCompile) {
+    options.encoding('UTF-8')
+}
+
+dependencies{
+    testImplementation(platform('org.junit:junit-bom:5.7.0'))
+    testImplementation('org.junit.jupiter:junit-jupiter')
+}
+
+test {
+    useJUnitPlatform()
+}
+
+application {
+    mainClassName= "me.skiincraft.pong.PongGame"
+}
